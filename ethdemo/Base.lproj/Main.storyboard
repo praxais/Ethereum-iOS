@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ethdemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ud9-yq-PND">
+                                <rect key="frame" x="16" y="36" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter ETH address here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uL7-kR-ZNN">
+                                <rect key="frame" x="16" y="44" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oB8-kJ-xnd">
+                                <rect key="frame" x="16" y="82" width="69" height="30"/>
+                                <state key="normal" title="Send ETH"/>
+                                <connections>
+                                    <action selector="onSendClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H4T-gS-biL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rw8-nF-8GD">
+                                <rect key="frame" x="16" y="120" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uL7-kR-ZNN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="55P-qQ-jli"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rw8-nF-8GD" secondAttribute="trailing" constant="16" id="CRh-Ps-utQ"/>
+                            <constraint firstItem="oB8-kJ-xnd" firstAttribute="top" secondItem="uL7-kR-ZNN" secondAttribute="bottom" constant="8" id="DA2-mY-edz"/>
+                            <constraint firstItem="uL7-kR-ZNN" firstAttribute="top" secondItem="ud9-yq-PND" secondAttribute="bottom" constant="8" id="GLn-Pj-wlt"/>
+                            <constraint firstItem="Rw8-nF-8GD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="H9F-Gr-7Z6"/>
+                            <constraint firstItem="ud9-yq-PND" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="WdK-zU-yNb"/>
+                            <constraint firstItem="oB8-kJ-xnd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WsL-oj-s1O"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uL7-kR-ZNN" secondAttribute="trailing" constant="16" id="f0K-CR-PXb"/>
+                            <constraint firstItem="Rw8-nF-8GD" firstAttribute="top" secondItem="oB8-kJ-xnd" secondAttribute="bottom" constant="8" id="hvr-ks-8ms"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ud9-yq-PND" secondAttribute="trailing" constant="16" id="lLE-M7-Pwl"/>
+                            <constraint firstItem="ud9-yq-PND" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tRQ-3E-iFW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnSend" destination="oB8-kJ-xnd" id="beD-Bb-kqo"/>
+                        <outlet property="edtEth" destination="uL7-kR-ZNN" id="hSN-5I-c1r"/>
+                        <outlet property="label" destination="ud9-yq-PND" id="Du5-Nm-9JN"/>
+                        <outlet property="labelTransaction" destination="Rw8-nF-8GD" id="hEO-CM-r8l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
