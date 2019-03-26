@@ -84,7 +84,25 @@ class ViewController: UIViewController {
                     return
                 }
                 
-                FileManager.default.createFile(atPath: userDir + "/keystore/key.json", contents: newKeystoreJSON, attributes: nil)
+                //create file
+                let fileManager = FileManager.default
+                if let tDocumentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+                    let filePath =  tDocumentDirectory.appendingPathComponent("\("keystore")")
+                    if !fileManager.fileExists(atPath: filePath.path) {
+                        do {
+                            try fileManager.createDirectory(atPath: filePath.path, withIntermediateDirectories: true, attributes: nil)
+                        } catch {
+                            NSLog("Couldn't create document directory")
+                        }
+                    }
+                    NSLog("Document directory is \(filePath)")
+                }
+                
+                
+                let fileCreated = FileManager.default.createFile(atPath: userDir + "/keystore/key.json", contents: newKeystoreJSON, attributes: nil)
+            
+            
+                print("File created: \(fileCreated)")
                 
                 guard let firstAddress = newKeystore.addresses?.first else {
                     print("Could not find address")

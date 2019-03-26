@@ -12,6 +12,10 @@
 		0AB07C1D2236266A00A2266A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB07C1B2236266A00A2266A /* Main.storyboard */; };
 		0AB07C1F2236266B00A2266A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB07C1E2236266B00A2266A /* Assets.xcassets */; };
 		0AB07C222236266B00A2266A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB07C202236266B00A2266A /* LaunchScreen.storyboard */; };
+		0AD400302248E9910048BFA6 /* ImportViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4002F2248E9910048BFA6 /* ImportViewContoller.swift */; };
+		0AD400322248EAF50048BFA6 /* Import.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD400312248EAF50048BFA6 /* Import.storyboard */; };
+		0AD400342248EDF30048BFA6 /* ImportWallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD400332248EDF30048BFA6 /* ImportWallet.storyboard */; };
+		0AD400362248EE2B0048BFA6 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD400352248EE2B0048BFA6 /* ImportWalletViewController.swift */; };
 		0BD9831A8EFDCCFED6CDDB3C /* Pods_ethdemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA24FEC0C6CC6E8E1DE443A6 /* Pods_ethdemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +27,10 @@
 		0AB07C1E2236266B00A2266A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AB07C212236266B00A2266A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AB07C232236266B00A2266A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AD4002F2248E9910048BFA6 /* ImportViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewContoller.swift; sourceTree = "<group>"; };
+		0AD400312248EAF50048BFA6 /* Import.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Import.storyboard; sourceTree = "<group>"; };
+		0AD400332248EDF30048BFA6 /* ImportWallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImportWallet.storyboard; sourceTree = "<group>"; };
+		0AD400352248EE2B0048BFA6 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		DA24FEC0C6CC6E8E1DE443A6 /* Pods_ethdemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ethdemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83C70756BC50A3426A44B62 /* Pods-ethdemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethdemo.release.xcconfig"; path = "Target Support Files/Pods-ethdemo/Pods-ethdemo.release.xcconfig"; sourceTree = "<group>"; };
 		FC3139D0F842F81233DDB380 /* Pods-ethdemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethdemo.debug.xcconfig"; path = "Target Support Files/Pods-ethdemo/Pods-ethdemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +83,10 @@
 				0AB07C1E2236266B00A2266A /* Assets.xcassets */,
 				0AB07C202236266B00A2266A /* LaunchScreen.storyboard */,
 				0AB07C232236266B00A2266A /* Info.plist */,
+				0AD4002F2248E9910048BFA6 /* ImportViewContoller.swift */,
+				0AD400312248EAF50048BFA6 /* Import.storyboard */,
+				0AD400332248EDF30048BFA6 /* ImportWallet.storyboard */,
+				0AD400352248EE2B0048BFA6 /* ImportWalletViewController.swift */,
 			);
 			path = ethdemo;
 			sourceTree = "<group>";
@@ -85,7 +97,6 @@
 				FC3139D0F842F81233DDB380 /* Pods-ethdemo.debug.xcconfig */,
 				F83C70756BC50A3426A44B62 /* Pods-ethdemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -151,7 +162,9 @@
 			files = (
 				0AB07C222236266B00A2266A /* LaunchScreen.storyboard in Resources */,
 				0AB07C1F2236266B00A2266A /* Assets.xcassets in Resources */,
+				0AD400342248EDF30048BFA6 /* ImportWallet.storyboard in Resources */,
 				0AB07C1D2236266A00A2266A /* Main.storyboard in Resources */,
+				0AD400322248EAF50048BFA6 /* Import.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD400362248EE2B0048BFA6 /* ImportWalletViewController.swift in Sources */,
+				0AD400302248E9910048BFA6 /* ImportViewContoller.swift in Sources */,
 				0AB07C1A2236266A00A2266A /* ViewController.swift in Sources */,
 				0AB07C182236266A00A2266A /* AppDelegate.swift in Sources */,
 			);

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hDu-fj-PRa">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Import View Controller-->
+        <scene sceneID="U9M-Ga-X07">
+            <objects>
+                <viewController id="hDu-fj-PRa" customClass="ImportViewController" customModule="ethdemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CBj-gh-ai7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dw-qe-Paq">
+                                <rect key="frame" x="141.5" y="318.5" width="92" height="30"/>
+                                <state key="normal" title="Create Wallet"/>
+                                <connections>
+                                    <action selector="onCreateWalletClicked:" destination="hDu-fj-PRa" eventType="touchUpInside" id="R9c-OX-I0z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMJ-J0-oeO">
+                                <rect key="frame" x="141.5" y="368" width="92" height="30"/>
+                                <state key="normal" title="Import Wallet"/>
+                                <connections>
+                                    <action selector="onImportWalletClicked:" destination="hDu-fj-PRa" eventType="touchUpInside" id="2qv-X5-IrX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HMJ-J0-oeO" firstAttribute="centerX" secondItem="CBj-gh-ai7" secondAttribute="centerX" id="Byc-lw-nbA"/>
+                            <constraint firstItem="3dw-qe-Paq" firstAttribute="centerY" secondItem="CBj-gh-ai7" secondAttribute="centerY" id="DKo-6w-URK"/>
+                            <constraint firstItem="3dw-qe-Paq" firstAttribute="centerX" secondItem="CBj-gh-ai7" secondAttribute="centerX" id="SSc-xT-C5r"/>
+                            <constraint firstItem="HMJ-J0-oeO" firstAttribute="top" secondItem="3dw-qe-Paq" secondAttribute="bottom" constant="19.5" id="zGR-In-d0q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Sw0-Nw-M1W"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnCreate" destination="3dw-qe-Paq" id="Odj-NF-IOB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7k7-OA-sPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-862" y="-1302"/>
+        </scene>
+    </scenes>
+</document>
