@@ -21,7 +21,7 @@ class ImportWalletViewController: UIViewController {
                 
                 print("Mnemonic: \(keyField?.text ?? "")")
                 
-                guard let newKeystore = try BIP32Keystore(mnemonics: keyField?.text ?? "", password: "myPassword") else {
+                guard let newKeystore = try BIP32Keystore(mnemonics: keyField?.text ?? "", password: "") else {
                     print("Failed to create new keystore")
                     return
                 }

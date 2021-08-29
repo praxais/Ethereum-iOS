@@ -121,38 +121,62 @@ class ViewController: UIViewController {
     
     private func getBalance(address: String, toDisplay: String) {
         let ethAdd = EthereumAddress(address)
-        let balancebigint = Web3.InfuraRinkebyWeb3(accessToken: "fc3b28083a234976a573818de16fd142").eth.getBalance(address: ethAdd!).value
-        print("Ether Balance :\(String(describing: Web3.Utils.formatToEthereumUnits(balancebigint ?? 0)!))")
         
-        label?.text = toDisplay + "\nEther Balance:\(String(describing: Web3.Utils.formatToEthereumUnits(balancebigint ?? 0)!))"
+        let balancebigint = try! Web3.InfuraRinkebyWeb3(accessToken: "2917adb69bfb4ca2b393372b5031c261").eth.getBalance(address: ethAdd!)
+        
+        print("Ether Balance :\(String(describing: Web3.Utils.formatToEthereumUnits(balancebigint )!))")
+        
+        label?.text = toDisplay + "\nEther Balance:\(String(describing: Web3.Utils.formatToEthereumUnits(balancebigint )!))"
     }
     
     private func sendETH(keystoreManager: KeystoreManager, keystore: BIP32Keystore) {
-        let web3Rinkeby = Web3.InfuraRinkebyWeb3(accessToken: "fc3b28083a234976a573818de16fd142")
+        let web3Rinkeby = Web3.InfuraRinkebyWeb3(accessToken: "2917adb69bfb4ca2b393372b5031c261")
         web3Rinkeby.addKeystoreManager(keystoreManager)
         
-        var options = Web3Options.defaultOptions()
+        var options = web3Rinkeby.transactionOptions
         options.from = keystore.addresses?.first!
-        options.gasLimit = BigUInt(21000)
-        options.value = Web3.Utils.parseToBigUInt("0.0004", units: .eth)
+        options.gasPrice = .automatic
+        options.gasLimit = .automatic
+        options.value = 0
         
-        let contract = web3Rinkeby.contract(Web3.Utils.coldWalletABI, at: EthereumAddress.init(edtEth?.text ?? "0x7299192CD862c9c5345cC47a2Ef24807436009b0"))?.method(options: options)
-        let estimatedGasResult = contract?.estimateGas(options: nil)
-        guard case .success(let estimatedGas)? = estimatedGasResult else {return}
-        
-        options.gasLimit = estimatedGas
-        
-        let sendResultBip32 = contract?.send(password: "myPassword")
-        
-        switch sendResultBip32 {
-        case .success(let r)?:
-            print(r)
-            labelTransaction?.text = "Transaction: " + (r.transaction.hash?.toHexString() ?? "N/A")
-        case .failure(let err)?:
-            print(err)
-            labelTransaction?.text = "Transaction: " + (err.localizedDescription)
-        case .none:
-            labelTransaction?.text = "Transaction failed"
+        if let path = Bundle.main.path(forResource: "abi", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let abiSource:String = String(decoding: data, as: UTF8.self)
+                
+                // was testing a custom token, this can be repurposed
+                if let contractRaw = web3Rinkeby.contract(abiSource, at: EthereumAddress.init("0xB6233606ec3738312c9AC62320aFFd528E8CD0d8" )),
+                   let contract = contractRaw.method("transfer", parameters: [self.edtEth?.text! as AnyObject,
+                                                                              BigUInt("500000000000000000000000") as AnyObject],
+                                                     extraData: Data(), transactionOptions: options){
+                    let estimatedGasResult:BigUInt = try! contract.estimateGas()
+                    options.gasLimit = .manual(estimatedGasResult)
+                    
+                    let sendResultBip32 = try! contract.send(password: "", transactionOptions: options)
+                    
+                    print(sendResultBip32)
+                    DispatchQueue.main.async {
+                        self.labelTransaction?.text = "Transaction: " + (sendResultBip32.transaction.hash?.toHexString() ?? "N/A")
+                    }
+                    
+        //
+        //            switch sendResultBip32 {
+        //            case .success(let r):
+        //
+        //            case .failure(let err):
+        //                print(err)
+        //                labelTransaction?.text = "Transaction: " + (err.localizedDescription)
+        //            case .none:
+        //                labelTransaction?.text = "Transaction failed"
+        //            }
+                }
+              } catch {
+                   // handle error
+                print(error)
+              }
         }
+        
+
+        
     }
 }
